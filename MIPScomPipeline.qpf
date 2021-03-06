@@ -1,0 +1,6 @@
+DATE = "17:45:32 October 02, 2018"
+QUARTUS_VERSION = "14.0"
+
+# Revisions
+
+PROJECT_REVISION = "MIPScomPipeline"
