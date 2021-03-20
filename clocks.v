@@ -1,38 +1,38 @@
-//Divisor de clock
+//Faz a divisão do clock
 module clk_div 
 #( 
-parameter WIDTH = 3, // Largura necessária para o registrador
-parameter N = 6 // Para dividir por 12 (6*2)
+parameter WIDTH = 3, //Tamanho do registrador (largura)
+parameter N = 6 //Faz a divisão por 12 (6x2)
 )
 (
     input wire reset,
     input wire clk,
-    output wire clk_out
+    output wire clkOut
 );
  
-    reg [WIDTH-1:0] counter;
-    reg [WIDTH-1:0] next_counter;
-    reg clk_track;
-    reg next_ctrack;
+    reg [WIDTH-1:0] count;
+    reg [WIDTH-1:0] nextCount;
+    reg clkTrack;
+    reg nextCtrack;
     
     always @(negedge clk) begin
-        clk_track <= next_ctrack;
-        counter <= next_counter;
+        clkTrack <= nextCtrack;
+        count <= nextCount;
     end
 
     always @(*) begin
         if (reset) begin
-            next_counter <= 0;
-            next_ctrack  <= 1'b0;
-        end else if (counter + 1 == N) begin
-            next_counter <= 0;
-            next_ctrack  <= ~clk_track;
+            nextCount <= 0;
+            nextCtrack  <= 1'b0;
+        end else if (count + 1 == N) begin
+            nextCount <= 0;
+            nextCtrack  <= ~clkTrack;
         end else begin
-            next_counter <= counter + 1;
-            next_ctrack  <= clk_track;
+            nextCount <= count + 1;
+            nextCtrack  <= clkTrack;
         end
     end
          
-    assign clk_out = clk_track;
+    assign clkOut = clkTrack;
     
 endmodule

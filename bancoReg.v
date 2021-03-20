@@ -1,35 +1,34 @@
-module bancoReg (clk, readReg1, readReg2, regW, writeReg, writeData, readData1, readData2);
+module bancoReg (clk, regRead1, regRead2, regW, regWrite, dataWrite, dataRead1, dataRead2);
 
-    //Declaração das entradas e saídas do bloco
+    //Entradas e saídas do bloco
     input regW;
-    input [4:0] readReg1;
-    input [4:0] readReg2;
-    input [4:0] writeReg;
-    input [31:0] writeData;
+    input [4:0] regRead1;
+    input [4:0] regRead2;
+    input [4:0] regWrite;
+    input [31:0] dataWrite;
     input clk;
 
-    output [31:0] readData1;
-    output [31:0] readData2;
-    //Fim da declaração das entradas e saídas;
+    output [31:0] dataRead1;
+    output [31:0] dataRead2;
+    //Final da declaração das entradas e saídas
 
-    reg [31:0] memoriaRegs [31:0];
+    reg [31:0] regsMem [31:0];
     reg [10:0]i;
 
-    //BLOCO DE INICIALIZAÇÃO DOS REGISTRADORES DA MEMÓRIA DE REGS
-    
+    //Inicialização do bloco dos registradores da memória de registradores
     initial begin
         for (i = 0; i < 32; i = i + 1) begin
-				memoriaRegs[i] = 32'b000000000000000000000000000000;
+				regsMem[i] = 32'b000000000000000000000000000000;
 		end
     end
     
     always @(posedge clk) begin
 		  if(regW)
-            memoriaRegs[writeReg] <= writeData;
+            regsMem[regWrite] <= dataWrite;
     end
-    //Atribuição das saídas
-        assign readData1 = memoriaRegs[readReg1];
-        assign readData2 = memoriaRegs[readReg2];
+    //Valores sendo atribuídos na saída
+        assign dataRead1 = regsMem[regRead1];
+        assign dataRead2 = regsMem[regRead2];
 
 endmodule
 

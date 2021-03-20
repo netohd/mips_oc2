@@ -1,6 +1,5 @@
-// Conversor para o display de 7 segmentos
-
-module sevenSeg(
+// Faz a conversão para o display de 7 segmentos
+module seteSeg(
     input wire [3:0] n,
     output wire [6:0] s
 );

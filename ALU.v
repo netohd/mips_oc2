@@ -1,13 +1,13 @@
-module ALU (entradaA, entradaB, ctrlULA, zero, saida);
-    //Declaração das entradas e saidas
-    input wire [3:0] ctrlULA;
+module ALU (entradaA, entradaB, ULAcontrol, zero, saida);
+    //Entradas e saidas
+    input wire [3:0] ULAcontrol;
     input wire [31:0] entradaA,entradaB;
     output reg [31:0] saida;
     output reg zero;
-    //Fim das entradas e saídas
-    always @(ctrlULA,entradaA,entradaB) begin
-        //Analiza em qual função ela deva entrar e realizar a operação correspondente.
-        case (ctrlULA)
+    //Final das entradas e saídas
+    always @(ULAcontrol,entradaA,entradaB) begin
+        //Verifica qual função deve ser executada.
+        case (ULAcontrol)
         0: saida <= entradaA & entradaB; //AND
         1: saida <= entradaA | entradaB; //OR
         2: saida <= entradaA + entradaB; //ADD

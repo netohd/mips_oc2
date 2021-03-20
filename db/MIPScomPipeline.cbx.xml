@@ -1,8 +1,0 @@
-<?xml version="1.0" ?>
-<LOG_ROOT>
-	<PROJECT NAME="MIPScomPipeline">
-		<CBX_INST_ENTRY INSTANCE_NAME="|MIPScomPipeline|Pipeline:pipe|ID:i_d|bancoReg:reg1|altsyncram:memoriaRegs_rtl_0" CBX_FILE_NAME="altsyncram_crh1.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|MIPScomPipeline|Pipeline:pipe|ID:i_d|bancoReg:reg1|altsyncram:memoriaRegs_rtl_1" CBX_FILE_NAME="altsyncram_crh1.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|MIPScomPipeline|Pipeline:pipe|MEM:memory|memdados:datamem|altsyncram:Mux27_rtl_0" CBX_FILE_NAME="altsyncram_0321.tdf"/>
-	</PROJECT>
-</LOG_ROOT>
