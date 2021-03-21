@@ -1,4 +1,4 @@
-module ALUcontrol (ULAOp, funct, ULActrl);
+module ALUctr (ULAOp, funct, ULActrl);
     input wire [1:0] ULAOp;
     input wire [5:0] funct;
     output reg [3:0] ULActrl;

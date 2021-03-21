@@ -1,4 +1,4 @@
-module Pipeline (clk , reset, resultExecULA);
+module Pipe (clk , reset, resultExecULA);
 	input wire clk, reset;
 	output wire [31:0] resultExecULA;
     wire [31:0] IF_ID_IR, IF_ID_NPC, numPcDec, rdataOut1Dec, rdataOut2Dec, extendOutDec; // Decode

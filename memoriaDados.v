@@ -1,4 +1,4 @@
-module memdados(clk, reset, address, dataWrite, memWrite, memRead, dataRead);
+module memoriaDados(clk, reset, address, dataWrite, memWrite, memRead, dataRead);
     input clk, reset, memWrite, memRead;
     input [31:0] address, dataWrite;
     output wire [31:0] dataRead;
