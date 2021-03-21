@@ -1,12 +1,11 @@
-module hazard1 (RsD, RtD, RtE, Memread,
-				Hazard);
+module hazard1 (Rs_D, Rt_D, Rt_E, readMem, hazard);
 
-input wire [4:0] RsD; 
-input wire [4:0] RtD;
-input wire [4:0] RtE;
-input wire Memread;
+input wire [4:0] Rs_D; 
+input wire [4:0] Rt_D;
+input wire [4:0] Rt_E;
+input wire readMem;
 
-output wire Hazard;
+output wire hazard;
 
-assign Hazard = Memread & (RtE != 0) & ((RtE == RsD) | (RtE == RtD));
+assign hazard = readMem & (Rt_E != 0) & ((Rt_E == Rs_D) | (Rt_E == Rt_D));
 endmodule

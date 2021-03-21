@@ -1,31 +1,31 @@
-module EX_MEM(clk,reset,bitsCtr, saidaAdd, zeroUla,
-				saidaUla,read2,saidaMux,saidaBitsCtr,resultadoAdd,zero,resultadoUla,saidaRead2,saidaMux5b);
+module EX_MEM(clk,reset,controlBits, addSaida, zeroULA,
+				saidaULA, read, saidaMux, saidaControlBits, addResultado, zero, resultadoULA, saidaRead, saidaMux5b);
 
-input clk,reset;
-input[31:0] saidaAdd, saidaUla,read2;
-input[4:0]bitsCtr, saidaMux;
-input zeroUla;
+input clk, reset;
+input[31:0] addSaida, saidaULA, read;
+input[4:0]controlBits, saidaMux;
+input zeroULA;
 
-output reg [4:0] saidaBitsCtr, saidaMux5b;
-output reg [31:0] resultadoAdd, resultadoUla, saidaRead2;
+output reg [4:0] saidaControlBits, saidaMux5b;
+output reg [31:0] addResultado, resultadoULA, saidaRead;
 output reg zero;
 
 always @(posedge clk or posedge reset)begin
 	if (reset) begin
-		saidaBitsCtr <= 0;
-		resultadoAdd <= 0;
-		resultadoUla <= 0;
-		saidaRead2 <= 0;
+		saidaControlBits <= 0;
+		addResultado <= 0;
+		resultadoULA <= 0;
+		saidaRead <= 0;
 		saidaMux5b <= 0;
 		zero <= 0;
 	end
 	else begin
-		saidaBitsCtr <= bitsCtr;
-		resultadoAdd <= saidaAdd;
-		resultadoUla <= saidaUla;
-		saidaRead2 <= read2;
+		saidaControlBits <= controlBits;
+		addResultado <= addSaida;
+		resultadoULA <= saidaULA;
+		saidaRead <= read;
 		saidaMux5b <= saidaMux;
-		zero <= zeroUla;
+		zero <= zeroULA;
 	end
 end
 

@@ -1,16 +1,15 @@
-module fowarding (RsE, RtE, WriteRegM, RegWriteM, WriteRegW, RegWriteW,
-                    ForwardAE, ForwardBE);
-input wire RegWriteM, RegWriteW;
-input wire [4:0] WriteRegW, WriteRegM, RsE, RtE;
-output wire [1:0] ForwardAE;
-output wire [1:0] ForwardBE;
+module fowarding (writeRegM, regWriteM, writeRegW, regWriteW, forward_AE, forward_BE, Rs_E, Rt_E,);
+input wire regWriteM, regWriteW;
+input wire [4:0] writeRegW, writeRegM, Rs_E, Rt_E;
+output wire [1:0] forward_AE;
+output wire [1:0] forward_BE;
 
-assign ForwardAE = ((RsE != 0) && (RsE == WriteRegM) && RegWriteM)  ? 2'b10 : // EX/EX
-				   (((RsE != 0) && (RsE == WriteRegW) && RegWriteW) ? 2'b01 : // MEM/EX
+assign forward_AE = ((Rs_E != 0) && (Rs_E == writeRegM) && regWriteM)  ? 2'b10 : // EX/EX
+				   (((Rs_E != 0) && (Rs_E == writeRegW) && regWriteW) ? 2'b01 : // MEM/EX
 				   0);
 
-assign ForwardBE = ((RtE != 0) && (RtE == WriteRegM) && RegWriteM)  ? 2'b10 : // EX/EX
-				   (((RtE != 0) && (RtE == WriteRegW) && RegWriteW) ? 2'b01 : // MEM/EX
+assign forward_BE = ((Rt_E != 0) && (Rt_E == writeRegM) && regWriteM)  ? 2'b10 : // EX/EX
+				   (((Rt_E != 0) && (Rt_E == writeRegW) && regWriteW) ? 2'b01 : // MEM/EX
 				   0);
 
 
