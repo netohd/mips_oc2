@@ -1,12 +1,12 @@
-module memoriaInstru(reset, clk, addr, inst);
+module memoriaInstru(reset, clk, adress, instr);
 	input reset, clk;
-    input wire [6:0] addr;
-    output [31:0] inst;
+    input wire [6:0] adress;
+    output [31:0] instr;
     reg [31:0] memoriaInstru [255:0];
-    assign inst = memoriaInstru[addr[6:2]];
+    assign instr = memoriaInstru[adress[6:2]];
 
     always @(posedge reset)
 	 begin 
-        $readmemb("program.bin",memoriaInstru);
+        $readmemb("instrucoes.bin", memoriaInstru);
     end
 endmodule

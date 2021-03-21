@@ -1,10 +1,9 @@
-module MUX5b (entrada1,entrada2,Seletor,Saida);
+module MUX5b (entrada1, entrada2, seletor, saida);
 
-    //Declaração das entradas de 5 bits
     input wire [4:0] entrada1, entrada2;
-    input wire Seletor; //sinal seletor
-    output [4:0] Saida; // saida 5-bit
-    
-    assign Saida = Seletor ? entrada1 : entrada2;
+    input wire seletor;
+    output [4:0] saida;
+
+    assign saida = seletor ? entrada1 : entrada2;
 
 endmodule
