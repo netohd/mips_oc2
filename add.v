@@ -1,7 +1,7 @@
-module add(entradaA,entradaB,saida);
-    input wire [31:0] entradaA,entradaB; 
+module add(entrada1, entarda2, saida);
+    input wire [31:0] entrada1,entarda2; 
     output wire [31:0] saida;
 
-    assign saida = entradaA + entradaB;
+    assign saida = entrada1 + entarda2;
 
 endmodule
